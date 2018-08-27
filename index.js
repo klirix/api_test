@@ -2,6 +2,7 @@ const express = require("express")
 const bp = require("body-parser")
 const sock = require("socket.io")
 const {TodoManager} = require("./TodoManager")
+const {env} = require("process")
 
 express()
 
@@ -28,4 +29,4 @@ express()
     res.json(TodoManager.toggleTodo(id))
 })
 
-.listen(80)
+.listen(env["PORT"])
